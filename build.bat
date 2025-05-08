@@ -120,7 +120,7 @@ echo ^</html^> >> public\404.html
 
 :: Установка зависимостей
 echo [5/8] Установка зависимостей...
-call npm install
+call npm install --legacy-peer-deps
 
 :: Инициализация Git и первый коммит
 echo [6/8] Инициализация Git и создание первого коммита...
@@ -131,7 +131,7 @@ git commit -m "Подготовка к публикации на GitHub Pages"
 :: Подключение к удаленному репозиторию
 echo [7/8] Подключение к удаленному репозиторию...
 git branch -M main
-git remote add origin https://github.com/pa1keer/%REPO_NAME%.git
+git remote add origin https://github.com/pa1kker/%REPO_NAME%.git
 
 :: Отправка кода на GitHub
 echo [8/8] Отправка кода на GitHub...

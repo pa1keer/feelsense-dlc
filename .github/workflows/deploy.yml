@@ -14,33 +14,31 @@ concurrency:
   group: "pages"
   cancel-in-progress: true
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-          cache: 'npm'
-
-      - name: Install dependencies
-        run: npm install --legacy-peer-deps
-
-      - name: Build with Next.js
-        run: |
+steps:
+  - uses: actions/checkout@v4
+  
+  - name: Setup Node
+    uses: actions/setup-node@v4
+    with:
+      node-version: '20'
+      cache: 'npm'
+  
+  - name: Generate lock file
+    run: npm install --package-lock-only
+  
+  - name: Install dependencies
+    run: npm ci --legacy-peer-deps
+    
+  - name: Build with Next.js
+    run: |
           npm run build
           npm run export
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
+  - name: Upload artifact
+    uses: actions/upload-pages-artifact@v3
+    with:
           path: ./out
-
-  deploy:
+    deploy:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

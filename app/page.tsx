@@ -1,7 +1,10 @@
 "use client"
 
+<<<<<<< HEAD
 import type React from "react"
 
+=======
+>>>>>>> 9bac6daa24c242160843f27333a920e8fc4861ab
 import { useState, useEffect } from "react"
 import { Shield, Check, AlertCircle, ExternalLink, Zap, Gamepad2, Sparkles } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -14,8 +17,11 @@ export default function DLCPage() {
   const [progress, setProgress] = useState(0)
   const [verified, setVerified] = useState(false)
   const [selectedServer, setSelectedServer] = useState("minecraft")
+<<<<<<< HEAD
   const [backgroundImage, setBackgroundImage] = useState("")
   const [imageError, setImageError] = useState(false)
+=======
+>>>>>>> 9bac6daa24c242160843f27333a920e8fc4861ab
 
   // Словарь с URL лотов для каждого типа сервера
   const serverLots = {
@@ -74,6 +80,7 @@ export default function DLCPage() {
     setVerified(false)
   }
 
+<<<<<<< HEAD
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setBackgroundImage(e.target.value)
     setImageError(false) // Сбрасываем ошибку при изменении URL
@@ -83,6 +90,8 @@ export default function DLCPage() {
     setImageError(true)
   }
 
+=======
+>>>>>>> 9bac6daa24c242160843f27333a920e8fc4861ab
   return (
     <div className="min-h-screen flex flex-col bg-zinc-900 text-white">
       {/* Header with glowing effect */}
@@ -122,6 +131,7 @@ export default function DLCPage() {
           <div>
             <Card className="bg-zinc-800 border-zinc-700 shadow-xl overflow-hidden">
               <div className="h-48 bg-gradient-to-br from-amber-900/40 to-red-900/40 relative">
+<<<<<<< HEAD
                 {backgroundImage && !imageError && (
                   <img
                     src={backgroundImage || "/placeholder.svg"}
@@ -130,6 +140,8 @@ export default function DLCPage() {
                     onError={handleImageError}
                   />
                 )}
+=======
+>>>>>>> 9bac6daa24c242160843f27333a920e8fc4861ab
                 <div className="absolute inset-0 flex items-center justify-center">
                   <Gamepad2 className="w-20 h-20 text-amber-500 opacity-80" />
                 </div>
